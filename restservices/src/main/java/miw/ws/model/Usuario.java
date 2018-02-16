@@ -98,7 +98,10 @@ public class Usuario {
 	public void setReserva(Reserva reserva) {
 		this.reserva = reserva;
 	}
-	
-	
+	@Override
+	public String toString() {
+		return "Usuario [nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email + ", nombreUsuario="
+				+ nombreUsuario + ", password=" + password + ", rol=" + rol + ", movil=" + movil + "]";
+	}
 
 }

@@ -20,6 +20,7 @@ public class ExcursionRS {
 	@Autowired
 	private ExcursionService service;
 	
+	@CrossOrigin
 	@GetMapping(produces=MediaType.APPLICATION_JSON)
 	public List<String> getAllExcursiones(){
 		return service.getAllExcursiones();
