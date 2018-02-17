@@ -39,11 +39,11 @@ public class Excursion {
 	@Column(name = "descripcion")
 	private String descripcion;
 	
-	@OneToMany(mappedBy = "excursion")
-	private List<Reserva> reservas;
-	
 	@Column(name = "estado")
 	private Status estado;
+	
+	@Column(name="plazas")
+	private int plazas;
 
 	
 	public int getId() {
@@ -93,15 +93,15 @@ public class Excursion {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
-	public List<Reserva> getReservas() {
-		return reservas;
-	}
-
-	public void setReservas(List<Reserva> reservas) {
-		this.reservas = reservas;
-	}
 	
+	public int getPlazas() {
+		return plazas;
+	}
+
+	public void setPlazas(int plazas) {
+		this.plazas = plazas;
+	}
+
 	public Status getEstado() {
 		return estado;
 	}

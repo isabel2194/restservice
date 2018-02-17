@@ -10,4 +10,6 @@ import miw.ws.model.Excursion;
 @Repository
 public interface ExcursionRepository extends JpaRepository<Excursion, Serializable>{
 
+	Excursion findById(int idExcursion);
+
 }

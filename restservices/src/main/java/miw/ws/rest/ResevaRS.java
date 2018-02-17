@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import miw.ws.model.Excursion;
 import miw.ws.model.Reserva;
 import miw.ws.model.Usuario;
 import miw.ws.services.ReservaService;
@@ -27,10 +27,12 @@ public class ResevaRS {
 	@Autowired
 	ReservaService reservaService;
 	
-	@PostMapping(produces=MediaType.APPLICATION_JSON)
-	public Response addReserva(Usuario usuario,Excursion excursion) {
-		Reserva reserva = reservaService.addReserva(usuario,excursion);
-		return Response.status(Response.Status.CREATED).entity(reserva).build();
+	@CrossOrigin
+	@PostMapping(path="{idExcursion}",produces=MediaType.APPLICATION_JSON,consumes=MediaType.APPLICATION_JSON)
+	public Reserva addReserva(@RequestBody Usuario usuario, @PathVariable String idExcursion) {
+		Reserva reserva = reservaService.addReserva(usuario,Integer.valueOf(idExcursion));
+		return reserva;
+		//return Response.status(Response.Status.CREATED).entity(reserva).build();
 	}
 	
 	@DeleteMapping(consumes=MediaType.APPLICATION_JSON,produces=MediaType.APPLICATION_JSON)

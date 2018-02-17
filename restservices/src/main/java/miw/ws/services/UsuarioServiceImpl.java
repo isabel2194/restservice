@@ -19,14 +19,14 @@ public class UsuarioServiceImpl implements UsuarioService{
 	@Override
 	public Usuario addUsuario(Usuario usuario) {
 		//ciframos la contraseña al guardar en base de datos
-		usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+		usuario.setPassword(usuario.getPassword());//passwordEncoder.encode(usuario.getPassword()));
 		return repository.save(usuario);
 	}
 
 	@Override
 	public boolean login(String username, String password) {
 		
-		if(repository.findByNombreUsuarioAndPassword(username,passwordEncoder.encode(password))!=null)
+		if(repository.findByNombreUsuarioAndPassword(username,password)!=null)
 			return true;
 		return false;
 	}

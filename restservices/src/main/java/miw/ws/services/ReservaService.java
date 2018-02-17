@@ -8,7 +8,7 @@ import miw.ws.model.Usuario;
 
 public interface ReservaService {
 	
-	public Reserva addReserva(Usuario usuario, Excursion excursion);
+	public Reserva addReserva(Usuario usuario, int idExcursion);
 
 	public Reserva deleteReserva(Reserva reserva);
 	
